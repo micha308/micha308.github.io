@@ -14,9 +14,7 @@
     }
 
     /* MENU */
-    nav {
-      background: #111;
-    }
+    nav { background: #111; }
 
     nav ul {
       list-style: none;
@@ -34,9 +32,7 @@
       font-weight: 500;
     }
 
-    nav a:hover {
-      background: #333;
-    }
+    nav a:hover { background: #333; }
 
     /* CONTENT */
     .container {
@@ -45,14 +41,8 @@
       padding: 16px;
     }
 
-    h1 {
-      margin-top: 16px;
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.05rem;
-    }
+    h1 { margin-top: 16px; font-size: 2rem; }
+    p { font-size: 1.05rem; margin: 0 0 12px; }
 
     .card {
       background: white;
@@ -74,19 +64,37 @@
       cursor: pointer;
     }
 
-    .btn:hover {
-      background: #f2f2f2;
+    .btn:hover { background: #f2f2f2; }
+
+    /* MEDIA (VIDEO) */
+    .media {
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .media video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* FADE-IN ANIMATIE */
+    .fade {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* MOBIEL */
     @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
+      nav ul { flex-direction: column; }
+      h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -110,20 +118,41 @@
 
       <button id="toonKnop" class="btn">Klik mij</button>
 
-      <p id="extraTekst" style="display:none; margin-top:12px;">
-        De interactie button werkt nu ook.
-      </p>
+      <!-- Fade-in blok -->
+      <div id="extraBlok" class="fade" style="display:none; margin-top:12px;">
+        <p>🎉 Surprise! Dit verschijnt met een fade-in.</p>
+
+        <!-- MP4 als gif (zonder geluid) -->
+        <div class="media">
+          <video autoplay loop muted playsinline>
+            <source src="1769545147848.mp4" type="video/mp4">
+            Je browser ondersteunt deze video niet.
+          </video>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
     const knop = document.getElementById("toonKnop");
-    const tekst = document.getElementById("extraTekst");
+    const blok = document.getElementById("extraBlok");
 
     knop.addEventListener("click", () => {
-      const zichtbaar = tekst.style.display === "block";
-      tekst.style.display = zichtbaar ? "none" : "block";
-      knop.textContent = zichtbaar ? "Klik mij" : "Verberg";
+      const zichtbaar = blok.style.display === "block";
+
+      if (zichtbaar) {
+        blok.classList.remove("show");
+        setTimeout(() => {
+          blok.style.display = "none";
+        }, 300);
+        knop.textContent = "Klik mij";
+      } else {
+        blok.style.display = "block";
+        requestAnimationFrame(() => {
+          blok.classList.add("show");
+        });
+        knop.textContent = "Verberg";
+      }
     });
   </script>
 
