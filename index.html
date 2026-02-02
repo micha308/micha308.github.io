@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mijn eerste website</title>
+  <title>Mijn website</title>
 
   <style>
     body {
@@ -12,51 +12,67 @@
       line-height: 1.6;
     }
 
+    /* MENU */
+    nav {
+      background: #111;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      display: block;
+      padding: 14px 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: #333;
+    }
+
+    /* CONTENT */
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 16px;
     }
 
-    header {
-      padding: 24px 0;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-    }
-
-    p {
-      margin: 0 0 12px;
-      font-size: 1.05rem;
-    }
-
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 16px;
-    }
-
-    /* Mobiel extra fijn */
-    @media (max-width: 480px) {
-      h1 { font-size: 1.6rem; }
-      .container { padding: 12px; }
+    /* MOBIEL */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <h1>Hallo 👋</h1>
-      <p>Dit is mijn eerste website met GitHub Pages.</p>
-    </header>
 
-    <div class="card">
-      <p>Volgende stap: een menu + meerdere pagina’s 😄</p>
-    </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="over.html">Over mij</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Welkom 👋</h1>
+    <p>Dit is mijn website met een menu.</p>
+    <p>Klik hierboven om straks naar andere pagina’s te gaan.</p>
   </div>
+
 </body>
 </html>
