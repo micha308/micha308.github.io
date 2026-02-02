@@ -2,10 +2,61 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mijn eerste website</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
+      padding: 24px 0;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    /* Mobiel extra fijn */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      .container { padding: 12px; }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hallo 🤗👋</h1>
-  <p>Dit is mijn eerste website met GitHub Pages.</p>
+  <div class="container">
+    <header>
+      <h1>Hallo 👋</h1>
+      <p>Dit is mijn eerste website met GitHub Pages.</p>
+    </header>
+
+    <div class="card">
+      <p>Volgende stap: een menu + meerdere pagina’s 😄</p>
+    </div>
+  </div>
 </body>
 </html>
